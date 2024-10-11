@@ -17,7 +17,10 @@ pipeline {
             steps {
                 withSonarQubeEnv('SonarQube') {
                     sh 'mvn clean package'
-                    sh '''mvn clean verify sonar:sonar   -Dsonar.projectKey=spring-sonarqube   -Dsonar.host.url=http://localhost:9000   -Dsonar.login=sqp_7e59bd0ffe27f4e5f3250f8382984aba554f22c0'''
+                    sh '''mvn clean verify sonar:sonar \
+                            -Dsonar.projectKey=spring-sonarqube \
+                            -Dsonar.host.url=http://localhost:9000 \
+                            -Dsonar.login=sqp_7e59bd0ffe27f4e5f3250f8382984aba554f22c0'''
                     echo 'SonarQube Analysis Completed'
                 }
             }
